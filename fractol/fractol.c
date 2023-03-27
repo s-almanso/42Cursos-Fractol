@@ -6,11 +6,14 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/26 14:32:09 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:40:53 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+
+// each fractol has a numb. assign, selct and init
 
 int select_fractol(char **argv, t_data *data)
 {
@@ -37,6 +40,28 @@ int select_fractol(char **argv, t_data *data)
 	return (1);
 }
 
+void ft_free(char **str)
+{
+	if (str && *str)
+	{
+		free (*str);
+		*str = (NULL);
+	}
+}
+
+// iterations when zooming only
+void put_txt(t_data *data)
+{
+	char	*txt;
+	char	*nbr;
+
+	nbr = ft_itoa(data->max_N);
+	txt = ft_strjoin("Number of Iterations: ", nbr);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xffffff, txt);
+	ft_free(&txt);
+	ft_free(&nbr);
+}
+
 int main(int argc, char **argv)
 {
 	t_data	*data;
@@ -48,8 +73,8 @@ int main(int argc, char **argv)
 		data->win_ptr = mlx_new_window(data->mlx_ptr, 900, 900, "Fractol 42");
 		if ((select_fractol(argv, data)) == 0)
 			return(-1);
-		//mlx_key_hook(data->win_ptr, keys, data);
-		//mlx_hook(data->win_ptr, 4, 0, mouse_hook, data);
+		mlx_key_hook(data->win_ptr, keys, data);
+		mlx_hook(data->win_ptr, 4, 0, mouse_hook, data);
 		mlx_loop(data->mlx_ptr);
 		free(data);
 	}
