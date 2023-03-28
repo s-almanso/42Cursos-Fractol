@@ -27,10 +27,10 @@ int	keys(int keys, t_data *data)
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	if (data->fractol == 0)
 		mandelbrot(data);
-//	else if(data->fractol == 1)
-	//	julia(data);
-//	else if (data->fractol == 2)
-	//	fern(data);
+	else if(data->fractol == 1)
+		julia(data);
+	else if (data->fractol == 2)
+		fern(data);
 	return (0);
 }
 
@@ -75,7 +75,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_data *data)
 		else if (mouse_code == 4 || mouse_code == 1)
 			data->zoom /= 1.2;
 		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	//	fern(data);
+		fern(data);
 	}
 	return (0);
 }
@@ -87,5 +87,5 @@ void zoom_julia(t_data *data, int mouse_code)
 		else if (mouse_code == 4 || mouse_code == 1)
 			data->zoom /= 1.2;
 		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	//	julia(data);
+		julia(data);
 }

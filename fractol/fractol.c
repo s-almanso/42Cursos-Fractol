@@ -12,7 +12,6 @@
 
 #include "fractol.h"
 
-
 // each fractol has a numb. assign, selct and init
 
 int select_fractol(char **argv, t_data *data)
@@ -25,12 +24,12 @@ int select_fractol(char **argv, t_data *data)
 	else if	(ft_strcmp(argv[1], "Julia") == 0)
 	{
 		data->fractol = 0;
-		// julia_init(data);
+		julia_init(data);
 	}
 	else if (ft_strcmp(argv[1], "Third fractol") == 0)
 	{
 		data->fractol = 0;
-		// init third fractol
+		init third fractol
 	}
 	else
 	{

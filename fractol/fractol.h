@@ -59,6 +59,12 @@ void julia_init(t_data *data);
 int	julia_n(t_data *data);
 void	julia(t_data *data);
 
+// Fern set
+void fern_init(t_data *data);
+void fern_cont(t_data *data);
+void fern(t_data *data);
+
+
 // zoom and dezoom func
 
 int		keys(int keys, t_data *data);

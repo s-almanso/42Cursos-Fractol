@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
+/*   Updated: 2023/03/28 15:15:01 by salmanso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "fractol.h"
 
 void julia_init(t_data *data)
@@ -13,7 +26,7 @@ void julia_init(t_data *data)
 	data->color = 0x006600;
 	data->zoom = 1;
 	data->max_N = 200;
-	mandelbrot(data);
+	julia(data);
 }
 
 // number of iterations
