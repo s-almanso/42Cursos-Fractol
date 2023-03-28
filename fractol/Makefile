@@ -22,6 +22,8 @@ SRC			=	fractol.c \
 				ft_putendl.c \
 				ft_strcmp.c \
 				mandelbrot.c \
+				julia.c \
+				ft_fern.c \
 				keys.c \
 
 OBJ			=	$(SRC:.c=.o)
