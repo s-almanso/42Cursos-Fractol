@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:08:30 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:24:58 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ void	ft_putendl(char *s);
 int		select_fractol(char **argv, t_data *data);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_free(char **str);
+void	put_txt(t_data *data);
+int		ft_strlen(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_count_digits(int n);
+char	*ft_itoa_conv(int n, char *str, int len);
+char	*ft_itoa(int n);
+char	*ft_strdup(const char *s1);
 
 void	mandelbrot_init(t_data *data);
 double	find_im(int y, t_data *data);

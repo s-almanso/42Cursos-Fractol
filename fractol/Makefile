@@ -6,7 +6,7 @@
 #    By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 20:19:30 by salmanso          #+#    #+#              #
-#    Updated: 2023/03/26 14:28:54 by salmanso         ###   ########.fr        #
+#    Updated: 2023/03/28 20:22:15 by salmanso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ MINILIBX	=	minilibx/liblmx.a
 SRC			=	fractol.c \
 				ft_putendl.c \
 				ft_strcmp.c \
+				ft_itoa.c \
+				ft_strjoin.c \
+				ft_strdup.c \
 				mandelbrot.c \
 				julia.c \
 				ft_fern.c \

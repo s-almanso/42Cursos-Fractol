@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:05:24 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:29:03 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	select_fractol(char **argv, t_data *data)
 		data->fractol = 0;
 		julia_init(data);
 	}
-	else if (ft_strcmp(argv[1], "Third fractol") == 0)
+	else if (ft_strcmp(argv[1], "Fern") == 0)
 	{
 		data->fractol = 0;
 		fern_init(data);

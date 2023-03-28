@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:35 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:05:54 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:24:07 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_data *data)
 	}
 	else if (data->fractol == 1)
 		zoom_julia(data, mouse_code);
-	put_text(data);
+	put_txt(data);
 	if (data->fractol == 2)
 	{
 		if (mouse_code == 5 || mouse_code == 2)
