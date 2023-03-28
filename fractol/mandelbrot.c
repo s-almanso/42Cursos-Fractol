@@ -64,6 +64,14 @@ double find_Im(int y, t_data *data)
 	return(y * (range / data->height) + data->min_Im);
 }
 
+/*
+Using the lines above, it is determined that the minimum real part
+of the complex numbers (ie, the left border of the image)
+is -2.0, and the maximum (ie, the right border) is 2.0.
+The minimum imaginary part is defined in the same way. And
+the maximum is calculated based on the size of the window to avoid image distortion.
+*/
+
 void mandelbrot(t_data *data)
 {
 	int		x;
