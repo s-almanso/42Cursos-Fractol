@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/26 12:31:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 19:32:02 by salmanso         ###   ########.fr       */
+/*   Created: 2023/03/03 19:30:00 by salmanso          #+#    #+#             */
+/*   Updated: 2023/03/26 14:13:53 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putendl(char *s)
 {
 	int		i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	while (s[i])
+	{
+		write(1, &s[i], 1);
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	write(1, "\n", 1);
 }
