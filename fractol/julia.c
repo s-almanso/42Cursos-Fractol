@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:05:21 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:18:26 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	julia_init(t_data *data)
 {
-	data->width = 960;
-	data->height = 540;
+	data->width = 1000;
+	data->height = 1000;
 	data->new_re = 0;
 	data->old_re = 0;
 	data->new_im = 0;
 	data->old_im = 0;
 	data->c_re = -0.7;
 	data->c_im = 0.27015;
-	data->color = 0x006600;
+	data->color = 0xFF00FF;
 	data->zoom = 1;
 	data->max_n = 200;
 	julia(data);
@@ -55,7 +55,7 @@ void	julia(t_data *data)
 	x = 100;
 	y = 100;
 	n = 0;
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff, "Julia");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFF, "Julia");
 	while (y < data->height)
 	{
 		while (x < data->width)
@@ -64,6 +64,7 @@ void	julia(t_data *data)
 					/ (0.3 * data->zoom * data->width);
 			data->new_im = (y - data->height / 2) \
 					/ (0.3 * data->zoom * data->height);
+			n = julia_n(data);
 			if (n < data->max_n)
 				mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, \
 						y, (data->color * n / 100));

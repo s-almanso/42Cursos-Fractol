@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:29:03 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:15:28 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	put_txt(t_data *data)
 
 	nbr = ft_itoa(data->max_n);
 	txt = ft_strjoin("Number of Iterations: ", nbr);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xffffff, txt);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, txt);
 	ft_free(&txt);
 	ft_free(&nbr);
 }
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 	{
 		data = (t_data *) malloc(sizeof(t_data));
 		data->mlx_ptr = mlx_init();
-		data->win_ptr = mlx_new_window(data->mlx_ptr, 900, 900, "Fractol 42");
+		data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "Fractol 42");
 		if ((select_fractol(argv, data)) == 0)
 			return (-1);
 		mlx_key_hook(data->win_ptr, keys, data);

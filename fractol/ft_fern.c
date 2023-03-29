@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:18:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:05:23 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:18:58 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	fern_init(t_data *data)
 {
-	data->width = 960;
-	data->height = 540;
+	data->width = 1000;
+	data->height = 1000;
 	data->new_re = 0;
 	data->old_re = 0;
 	data->new_im = 0;
 	data->old_im = 0;
-	data->color = 0x00ff00;
+	data->color = 0x008000;
 	data->zoom = 1;
 	fern(data);
 }
@@ -52,7 +52,7 @@ void	fern_cont(t_data *data)
 
 void	fern(t_data *data)
 {
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff, \
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFF, \
 			"Barnsley Fern");
 	data->max_n = 10000;
 	while (data->max_n > 0)
@@ -68,7 +68,7 @@ void	fern(t_data *data)
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, 30 * data->new_re + \
 			data->width / 2, 50 * data->new_im + data->height / 3, data->color);
 		data->old_re = data->new_re;
-		data->old_im = data->old_im;
+		data->old_im = data->new_im;
 		data->max_n--;
 	}
 }
