@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:18:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 18:18:58 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:19:13 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	fern_cont(t_data *data)
 	}
 	else if (data->rand >= 8 && data->rand <= 15)
 	{
-		data->new_re = 0.2 * data->old_re + 0.26 \
+		data->new_re = 0.2 * data->old_re - 0.26 \
 				* data->old_im * data->zoom;
 		data->new_im = 0.23 * data->old_re + 0.22 \
 				* data->old_im + 1.6 * data->zoom;
@@ -54,7 +54,7 @@ void	fern(t_data *data)
 {
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFF, \
 			"Barnsley Fern");
-	data->max_n = 10000;
+	data->max_n = 100000;
 	while (data->max_n > 0)
 	{
 		data->rand = rand() % 100;

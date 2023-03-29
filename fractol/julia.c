@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 18:18:26 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:59:11 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	julia_init(t_data *data)
 	data->old_re = 0;
 	data->new_im = 0;
 	data->old_im = 0;
-	data->c_re = -0.7;
-	data->c_im = 0.27015;
+	data->c_re = -0.12;
+	data->c_im = 0.75;
 	data->color = 0xFF00FF;
 	data->zoom = 1;
-	data->max_n = 200;
+	data->max_n = 300;
 	julia(data);
 }
 

@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 18:15:28 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:52:09 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	select_fractol(char **argv, t_data *data)
 	}
 	else if (ft_strcmp(argv[1], "Julia") == 0)
 	{
-		data->fractol = 0;
+		data->fractol = 1;
 		julia_init(data);
 	}
 	else if (ft_strcmp(argv[1], "Fern") == 0)
 	{
-		data->fractol = 0;
+		data->fractol = 2;
 		fern_init(data);
 	}
 	else
