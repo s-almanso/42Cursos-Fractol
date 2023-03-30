@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/28 20:24:58 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:19:34 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,22 @@
 # include <math.h>
 # include <stdlib.h>
 # include "./minilibx/mlx.h"
+#include <stdio.h>
+
+typedef struct	s_img_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img_data;
 
 typedef struct s_data
 {
+	t_img_data	img;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	void	*mlx_img;
 	int		fractol;
 	int		color;
 	int		width;
@@ -67,6 +78,7 @@ void	fern_init(t_data *data);
 void	fern_cont(t_data *data);
 void	fern(t_data *data);
 
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 int		keys(int keys, t_data *data);
 void	ft_zoom(int x, int y, t_data *data);
 void	ft_dezoom(int x, int y, t_data *data);

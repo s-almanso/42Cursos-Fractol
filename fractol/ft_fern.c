@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:18:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 20:19:13 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:59:50 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	fern(t_data *data)
 		}
 		else
 			fern_cont(data);
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, 30 * data->new_re + \
+		my_mlx_pixel_put(&data->img, 30 * data->new_re + \
 			data->width / 2, 50 * data->new_im + data->height / 3, data->color);
 		data->old_re = data->new_re;
 		data->old_im = data->new_im;

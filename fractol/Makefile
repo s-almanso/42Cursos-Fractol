@@ -6,7 +6,7 @@
 #    By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 20:19:30 by salmanso          #+#    #+#              #
-#    Updated: 2023/03/28 20:22:15 by salmanso         ###   ########.fr        #
+#    Updated: 2023/03/30 21:59:52 by salmanso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ fclean:		clean
 			@echo "$(CYAN)fractol executable files successfully cleaned!$(DEF_COLOR)"
 
 re:			fclean all
-			@echo "$(PINK)Successfully cleaned and rebuilt everything for fractol!$(DEF_COLOR)"
+			@echo "$(PINK)Successfully cleaned and rebuilt everything for fractol!$(DEF_COLOR)" && rm *.o
 
 norm:
 			@norminette $(SRC) | grep -v Norme -B1 || true

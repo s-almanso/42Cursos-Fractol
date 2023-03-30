@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 18:52:09 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:34:41 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,21 @@ void	put_txt(t_data *data)
 	ft_free(&nbr);
 }
 
+int	exit_app()
+{
+	exit(0);
+	return (0);
+}
+
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
+{
+	char	*dst;
+	if (x >= 1000 || y >= 1000 || x <= -1000 || y <= -1000)
+		return ;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	*data;
@@ -67,9 +82,13 @@ int	main(int argc, char **argv)
 		data = (t_data *) malloc(sizeof(t_data));
 		data->mlx_ptr = mlx_init();
 		data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "Fractol 42");
+		data->img.img = mlx_new_image(data->mlx_ptr, 2000, 2000);
+		data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, &data->img.line_length,
+							&data->img.endian);
 		if ((select_fractol(argv, data)) == 0)
 			return (-1);
-		mlx_key_hook(data->win_ptr, keys, data);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
+		mlx_hook(data->win_ptr, 17, 0, exit_app, data);
 		mlx_hook(data->win_ptr, 4, 0, mouse_hook, data);
 		mlx_loop(data->mlx_ptr);
 		free(data);

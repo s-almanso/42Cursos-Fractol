@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:35 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/29 18:25:53 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:37:36 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	keys(int keys, t_data *data)
 {
 	if (keys == 53)
-		exit(1);
+		exit(0);
 	else if (keys == 18)
 		data->color = 0x00ff00;
 	else if (keys == 19)
@@ -56,7 +56,7 @@ int	mouse_hook(int mouse_code, int x, int y, t_data *data)
 			ft_zoom(x, y, data);
 		else if (mouse_code == 4 || mouse_code == 1)
 			ft_dezoom(x, y, data);
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 		mandelbrot(data);
 	}
 	if (data->fractol == 1)
@@ -68,11 +68,12 @@ int	mouse_hook(int mouse_code, int x, int y, t_data *data)
 			data->zoom *= 1.2;
 		else if (mouse_code == 4 || mouse_code == 1)
 			data->zoom /= 1.2;
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 		fern(data);
 	}
 	return (0);
 }
+int rrr = -1;
 
 void	zoom_julia(t_data *data, int mouse_code)
 {
@@ -86,6 +87,12 @@ void	zoom_julia(t_data *data, int mouse_code)
 		data->zoom /= 1.2;
 		data->max_n--;
 	}
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+mlx_destroy_image(data->mlx_ptr, &data->img);
+data->img.img = mlx_new_image(data->mlx_ptr, 2000, 2000);
+		data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, &data->img.line_length,
+							&data->img.endian);
+	printf("passed %d\n", ++rrr);
 	julia(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 }
