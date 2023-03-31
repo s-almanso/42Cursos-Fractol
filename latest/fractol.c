@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 00:06:33 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:44:46 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,6 @@ int	select_fractol(char **argv, t_data *data)
 		return (0);
 	}
 	return (1);
-}
-
-void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
-{
-	char	*dst;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
 }
 
 int	main(int argc, char **argv)

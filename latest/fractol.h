@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/31 23:46:37 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:07:28 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
+# include "./libft/libft.h"
 # include "./minilibx/mlx.h"
-#include <stdio.h>
 
 typedef struct	s_img_data {
 	void	*img;
@@ -53,13 +53,7 @@ typedef struct s_data
 
 void	ft_free(char **str);
 void	put_txt(t_data *data);
-void	ft_putendl(char *s);
 int		select_fractol(char **argv, t_data *data);
-int		ft_strcmp(char *s1, char *s2);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_itoa(int n);
-char	*ft_strcpy(char *dest, const char *src);
 
 
 void	mandelbrot_init(t_data *data);
@@ -82,8 +76,8 @@ void	ft_zoom(int x, int y, t_data *data);
 void	ft_dezoom(int x, int y, t_data *data);
 int		mouse_hook(int mouse_code, int x, int y, t_data *data);
 void	zoom_julia(t_data *data, int mouse_code);
-void	zoom_fern(t_data *data, int mouse_code);
 int		exit_app();
 void	clear_display_img(t_data *data);
+void	zoom_fern(t_data *data, int mouse_code);
 
 #endif

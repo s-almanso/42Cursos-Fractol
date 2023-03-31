@@ -6,7 +6,7 @@
 #    By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 20:19:30 by salmanso          #+#    #+#              #
-#    Updated: 2023/03/31 23:56:21 by salmanso         ###   ########.fr        #
+#    Updated: 2023/04/01 00:58:05 by salmanso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,14 @@ HEADER		=	fractol.h
 
 MINILIBX	=	minilibx/liblmx.a
 
+LIBFT		=	libft/libft.a
+
 SRC			=	fractol.c \
-				ft_putendl.c \
-				ft_strcmp.c \
-				ft_itoa.c \
-				ft_strjoin.c \
 				mandelbrot.c \
 				julia.c \
 				ft_fern.c \
 				keys.c \
-				ft_exit.c
+				ft_helper.c
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -44,13 +42,17 @@ PINK		=	\033[0;35m
 
 all: 		$(NAME)
 
-$(NAME):	$(MINILIBX) $(OBJ)
+$(NAME):	$(MINILIBX) $(LIBFT) $(OBJ)
 			Make -C minilibx
-			$(CC) $(CFLAG) $(SRC) -o $(NAME) -I $(HEADER) -L ./minilibx -lmlx -framework OpenGL -framework Appkit
+			Make -C libft
+			$(CC) $(CFLAG) $(SRC) -o $(NAME) -I $(HEADER) -L. $(LIBFT) -L ./minilibx -lmlx -framework OpenGL -framework Appkit
 			@echo "$(GREEN)fractol successfully compiled!$(DEF_COLOR)"
 
 $(MINILIBX):
 			make minilibx
+
+$(LIBFT):
+			make libft
 
 clean:
 			$(RM) $(OBJ)
