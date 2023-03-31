@@ -51,7 +51,7 @@ void	fern(t_data *data)
 {
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff,
 		"Barnsley fern");
-	data->max_n = 1000;
+	data->max_n = 10000;
 	while (data->max_n > 0)
 	{
 		data->rand = rand() % 100;
