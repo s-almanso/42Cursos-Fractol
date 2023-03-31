@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:05:03 by vmuradia          #+#    #+#             */
-/*   Updated: 2023/03/31 01:41:26 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:40:52 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	mandelbrot(t_data *data)
 
 	x = 100;
 	y = 100;
-	//mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff,
-	//	"Mandelbrot Set");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff,
+		"Mandelbrot Set");
 	while (x < data->width)
 	{
 		while (y < data->height)

@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:16:50 by vmuradia          #+#    #+#             */
-/*   Updated: 2023/03/31 01:27:18 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:07:31 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		main(int argc, char **argv)
 		if ((fract_select(argv, data)) == 0)
 			return (-1);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
-	//	mlx_key_hook(data->win_ptr, keys, data);
+		mlx_key_hook(data->win_ptr, keys, data);
 		mlx_hook(data->win_ptr, 17, 0, exit_app, data);
 		mlx_hook(data->win_ptr, 4, 0, mouse_hook, data);
 		mlx_loop(data->mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:35 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/31 22:08:04 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:03:06 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	keys(int keys, t_data *data)
 		data->color = 0x0ff69b4;
 	else if (keys == 20)
 		data->color = 0x0ffdab9;
-	// mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	if (data->fractol == 0)
 		mandelbrot(data);
 	else if (data->fractol == 1)
@@ -34,18 +33,20 @@ int	keys(int keys, t_data *data)
 
 void	ft_zoom(int x, int y, t_data *data)
 {
-	data->min_re = (x / data->zoom + data->min_re) - (x / (data->zoom * 1.4));
-	data->min_im = (y / data->zoom + data->min_im) - (y / (data->zoom * 1.4));
-	data->zoom *= 1.4;
+	data->min_re = (x / data->zoom + data->min_re) - (x / (data->zoom * 1.2));
+	data->min_im = (y / data->zoom + data->min_im) - (y / (data->zoom * 1.2));
+	data->zoom *= 1.2;
 	data->max_n++;
+	clear_display_img(data);
 }
 
 void	ft_dezoom(int x, int y, t_data *data)
 {
-	data->min_re = (x / data->zoom + data->min_re) - (x / (data->zoom / 1.4));
-	data->min_im = (y / data->zoom + data->min_im) - (y / (data->zoom / 1.4));
-	data->zoom /= 1.4;
+	data->min_re = (x / data->zoom + data->min_re) - (x / (data->zoom / 1.2));
+	data->min_im = (y / data->zoom + data->min_im) - (y / (data->zoom / 1.2));
+	data->zoom /= 1.2;
 	data->max_n--;
+	clear_display_img(data);
 }
 
 int	mouse_hook(int mouse_code, int x, int y, t_data *data)
@@ -53,37 +54,19 @@ int	mouse_hook(int mouse_code, int x, int y, t_data *data)
 	if (data->fractol == 0)
 	{
 		if (mouse_code == 5 || mouse_code == 2)
-			{
-				ft_zoom(x, y, data);
-			}
+			ft_zoom(x, y, data);
 		else if (mouse_code == 4 || mouse_code == 1)
-			{
-				ft_dezoom(x, y, data);
-			}
-	//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		mlx_destroy_image(data->mlx_ptr, data->img.img);
-		data->img.img = mlx_new_image(data->mlx_ptr, data->width, data->height);
-		data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, \
-					&data->img.line_length, &data->img.endian);
+			ft_dezoom(x, y, data);
 		mandelbrot(data);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, &data->img, 0, 0);
-
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 	}
-	if (data->fractol == 1)
+	else if (data->fractol == 1)
 		zoom_julia(data, mouse_code);
 	put_txt(data);
 	if (data->fractol == 2)
-	{
-		if (mouse_code == 5 || mouse_code == 2)
-			data->zoom *= 1.2;
-		else if (mouse_code == 4 || mouse_code == 1)
-			data->zoom /= 1.2;
-	//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		fern(data);
-	}
+		zoom_fern(data, mouse_code);
 	return (0);
 }
-int rrr = -1;
 
 void	zoom_julia(t_data *data, int mouse_code)
 {
@@ -91,18 +74,14 @@ void	zoom_julia(t_data *data, int mouse_code)
 	{
 		data->zoom *= 1.2;
 		data->max_n++;
+		clear_display_img(data);
 	}
 	else if (mouse_code == 4 || mouse_code == 1)
 	{
 		data->zoom /= 1.2;
 		data->max_n--;
+		clear_display_img(data);
 	}
-//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-//	mlx_destroy_image(data->mlx_ptr, &data->img);
-	data->img.img = mlx_new_image(data->mlx_ptr, data->width, data->height);
-	data->img.addr = mlx_get_data_addr(&data->img.img, &data->img.bits_per_pixel, \
-			&data->img.line_length, &data->img.endian);
-	printf("passed %d\n", ++rrr);
 	julia(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 }
