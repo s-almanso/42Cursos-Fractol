@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:59:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/30 21:59:19 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/31 00:37:27 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	mandelbrot(t_data *data)
 			if (n == data->max_n)
 				my_mlx_pixel_put(&data->img, x, y, 0x000000);
 			else
-					my_mlx_pixel_put(&data->img, x, \
+				my_mlx_pixel_put(&data->img, x, \
 						y, (data->color * n / 100));
 			y++;
 		}

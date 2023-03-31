@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/03/30 22:19:34 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/03/31 01:14:16 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_data
 	t_img_data	img;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*mlx_img;
 	int		fractol;
 	int		color;
 	int		width;
