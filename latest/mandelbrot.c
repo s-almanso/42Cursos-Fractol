@@ -6,15 +6,15 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:59:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 17:38:45 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/02 19:00:57 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 void	mandelbrot_init(t_data *data)
 {
-	data->width = 1000;
+	data->width = 1200;
 	data->height = 1000;
 	data->min_re = -2.05;
 	data->max_re = 1.2;
@@ -26,7 +26,7 @@ void	mandelbrot_init(t_data *data)
 	mandelbrot(data);
 }
 
-int		find_n(double c_re, double c_im, double max_n)
+int	find_n(double c_re, double c_im, double max_n)
 {
 	int			i;
 	double		z_re;
@@ -85,7 +85,7 @@ double	find_re(int x, t_data *data)
 
 double	find_im(int y, t_data *data)
 {
-	double range;
+	double	range;
 
 	range = data->max_im - data->min_im;
 	return (y * (range / data->height) + data->min_im);

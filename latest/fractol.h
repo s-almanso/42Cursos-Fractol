@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/02 18:04:31 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:34:21 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_data
 void	ft_free(char **str);
 void	put_txt(t_data *data);
 int		select_fractol(char **argv, t_data *data);
+void	ft_error(int argc);
 
 
 void	mandelbrot_init(t_data *data);
@@ -70,7 +71,7 @@ void	fern_cont(t_data *data);
 void	fern(t_data *data);
 
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
-int		keys(int keys, t_data *data);
+int		keys(int keys);
 void	ft_zoom(int x, int y, t_data *data);
 void	ft_dezoom(int x, int y, t_data *data);
 int		mouse_hook(int mouse_code, int x, int y, t_data *data);

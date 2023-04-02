@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:02:52 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 18:14:59 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:52:54 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char const *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -44,7 +44,7 @@ void	ft_putendl(char const *s)
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -58,9 +58,10 @@ char	*ft_strcpy(char *dest, const char *src)
 
 char	*ft_itoa(int n)
 {
-	char *str;
+	char	*str;
 
-	if (!(str = (char *)malloc(sizeof(char) * 2)))
+	str = (char *)malloc(sizeof(char) * 2);
+	if (!str)
 		return (NULL);
 	if (n == -2147483648)
 		return (ft_strcpy(str, "-2147483648"));

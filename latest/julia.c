@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 17:57:55 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:55:42 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	julia_init(t_data *data)
 {
-	data->width = 1000;
+	data->width = 1200;
 	data->height = 1000;
 	data->color = 0xFF0000;
 	data->zoom = 1;
@@ -24,22 +24,22 @@ void	julia_init(t_data *data)
 	data->new_im = 0;
 	data->old_re = 0;
 	data->old_im = 0;
-	data->max_n = 200;
+	data->max_n = 100;
 	julia(data);
 }
 
-int		julia_n(t_data *data)
+int	julia_n(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (i < data->max_n && data->new_re * data->new_re +
-		data->new_im * data->new_im < 4)
+	while (i < data->max_n && data->new_re * data->new_re
+		+ data->new_im * data->new_im < 4)
 	{
 		data->old_re = data->new_re;
 		data->old_im = data->new_im;
-		data->new_re = data->old_re * data->old_re - data->old_im *
-			data->old_im + data->c_re;
+		data->new_re = data->old_re * data->old_re - data->old_im
+			* data->old_im + data->c_re;
 		data->new_im = 2 * data->old_re * data->old_im + data->c_im;
 		i++;
 	}
@@ -48,9 +48,9 @@ int		julia_n(t_data *data)
 
 void	julia(t_data *data)
 {
-	int n;
-	int x;
-	int y;
+	int	n;
+	int	x;
+	int	y;
 
 	n = 0;
 	x = 0;
@@ -60,10 +60,10 @@ void	julia(t_data *data)
 	{
 		while (x < data->width)
 		{
-			data->new_re = 1.5 * (x - data->width / 2) / (0.3 * data->zoom *
-				data->width);
-			data->new_im = (y - data->height / 2) / (0.3 * data->zoom *
-				data->height);
+			data->new_re = 1.5 * (x - data->width / 2) / (0.3 * data->zoom
+					* data->width);
+			data->new_im = (y - data->height / 2) / (0.3 * data->zoom
+					* data->height);
 			n = julia_n(data);
 			if (n < data->max_n)
 				my_mlx_pixel_put(&data->img, x, y,
