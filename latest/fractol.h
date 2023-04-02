@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 01:07:28 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:04:31 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
 typedef struct	s_img_data {
@@ -79,5 +78,14 @@ void	zoom_julia(t_data *data, int mouse_code);
 int		exit_app();
 void	clear_display_img(t_data *data);
 void	zoom_fern(t_data *data, int mouse_code);
+
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putendl(char const *s);
+char	*ft_strcpy(char *dest, const char *src);
+char	*ft_itoa(int n);
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

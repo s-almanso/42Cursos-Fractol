@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:18:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 01:15:13 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:42:17 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fern_init(t_data *data)
 	data->new_re = 0;
 	data->old_im = 0;
 	data->new_im = 0;
-	data->color = 0x00ff00;
+	data->color = 0xa9ea95;
 	data->zoom = 1;
 	fern(data);
 }
@@ -49,9 +49,9 @@ void	fern_cont(t_data *data)
 
 void	fern(t_data *data)
 {
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xffffff,
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFFF,
 		"Barnsley fern");
-	data->max_n = 1000;
+	data->max_n = 100000;
 	while (data->max_n > 0)
 	{
 		data->rand = rand() % 100;
@@ -62,7 +62,7 @@ void	fern(t_data *data)
 		}
 		else
 			fern_cont(data);
-		my_mlx_pixel_put(&data->img, 30 * data->new_re +
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, 30 * data->new_re +
 			data->width / 2, 50 * data->new_im + data->height / 3, data->color);
 		data->old_re = data->new_re;
 		data->old_im = data->new_im;

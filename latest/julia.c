@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 01:10:06 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:57:55 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	julia_init(t_data *data)
 {
 	data->width = 1000;
 	data->height = 1000;
-	data->color = 0x006600;
+	data->color = 0xFF0000;
 	data->zoom = 1;
-	data->c_re = -0.7;
-	data->c_im = 0.27015;
+	data->c_re = -0.8;
+	data->c_im = 0.156;
 	data->new_re = 0;
 	data->new_im = 0;
 	data->old_re = 0;
@@ -53,7 +53,7 @@ void	julia(t_data *data)
 	int y;
 
 	n = 0;
-	x = 100;
+	x = 0;
 	y = 100;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFF, "Julia");
 	while (y < data->height)
@@ -71,6 +71,6 @@ void	julia(t_data *data)
 			x++;
 		}
 		y++;
-		x = 100;
+		x = 0;
 	}
 }

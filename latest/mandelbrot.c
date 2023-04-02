@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:59:38 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 01:16:21 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:38:45 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mandelbrot_init(t_data *data)
 	data->max_re = 1.2;
 	data->min_im = -1.3;
 	data->max_im = 1.2;
-	data->color = 0xd7afd7;
+	data->color = 0x080000;
 	data->zoom = 200;
 	data->max_n = 100;
 	mandelbrot(data);
@@ -52,8 +52,8 @@ void	mandelbrot(t_data *data)
 	int		y;
 	int		n;
 
-	x = 100;
-	y = 100;
+	x = 0;
+	y = 50;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 500, 40, 0xFFFFFF,
 		"Mandelbrot Set");
 	while (x < data->width)
@@ -71,7 +71,7 @@ void	mandelbrot(t_data *data)
 			y++;
 		}
 		x++;
-		y = 100;
+		y = 50;
 	}
 }
 

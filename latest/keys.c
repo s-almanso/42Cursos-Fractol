@@ -6,11 +6,12 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:35 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/01 01:06:28 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:35:46 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void	ft_zoom(int x, int y, t_data *data)
 {
@@ -103,15 +104,9 @@ int		keys(int key, t_data *data)
 void	zoom_fern(t_data *data, int mouse_code)
 {
 	if (mouse_code == 2 || mouse_code == 5)
-	{
 		data->zoom *= 1.2;
-		clear_display_img(data);
-	}
 	else if (mouse_code == 4 || mouse_code == 1)
-	{
 		data->zoom /= 1.2;
-		clear_display_img(data);
-	}
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	fern(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img, 0, 0);
 }
