@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/05 21:33:26 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:38:16 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ typedef struct s_data
 	double		y_mv;
 }	t_data;
 
+void	init(int argc, char **argv, t_data *data);
 void	ft_free(char **str);
 void	put_txt(t_data *data);
 int		select_fractol(int argc, char **argv, t_data *data);
-void	ft_error(int argc);
+void	ft_error(int argc, char **argv);
 int		exit_app(void);
 
 void	mandelbrot_init(t_data *data);
@@ -91,5 +92,8 @@ size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strcmp(char *s1, char *s2);
 double	ft_atof(const char *str);
+void	ft_check_range(t_data *data);
+double	ft_atof_cont(const char *str, unsigned int x[4], double a);
+void	zoom_mandelbrot(t_data *data, int mouse_code);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/05 22:16:11 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:58:56 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,7 @@
 int	select_fractol(int argc, char **argv, t_data *data)
 {
 	if (argc == 2)
-	{
-		if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-		{
-			data->fractol = 0;
-			mandelbrot_init(data);
-		}
-		else if (ft_strcmp(argv[1], "Fern") == 0)
-		{
-			data->fractol = 2;
-			fern_init(data);
-		}
-		else
-		{
-			ft_putendl("Error! Invalid input!");
-			ft_putendl("Options: ./fractol 'Mandelbrot' 'Fern'  'Julia c_re c_im");
-			return(0);
-		}
-	}
+		init(argc, argv, data);
 	else if (argc == 4 && (ft_strcmp(argv[1], "Julia") == 0))
 	{
 		if (ft_strcmp(argv[1], "Julia") == 0)
@@ -43,28 +26,37 @@ int	select_fractol(int argc, char **argv, t_data *data)
 	}
 	else if (argc == 4 && (ft_strcmp(argv[1], "Julia") != 0))
 	{
-		ft_putendl("Error! Invalid input for Julia set!");
-		ft_putendl("I/P: ./fractol 'Julia c_re c_im");
+		ft_error(argc, argv);
 		return (0);
 	}
 	else
 	{
-		ft_putendl("Error! Invalid input!");
-		ft_putendl("Options: ./fractol 'Mandelbrot' 'Fern'  'Julia c_re c_im");
+		ft_error(argc, argv);
 		return (0);
 	}
 	return (1);
 }
 
-void	ft_error(int argc)
+void	ft_error(int argc, char **argv)
 {
-	if (argc > 2)
+	if (argc == 2 && ((ft_strcmp(argv[1], "Mandelbrot") != 0)
+			&& (ft_strcmp(argv[1], "Fern") != 0)))
 	{
-		ft_putendl("Error! Please select desired Fractol!");
-		ft_putendl("Options: ./fractol 'Mandelbrot' 'Julia' 'Fern'");
+		ft_putendl("Error! Invalid input!");
+		ft_putendl("Options: ./fractol 'Mandelbrot' 'Fern' 'Julia c_re c_im");
 	}
-	else if (argc <= 1)
+	if (argc > 4 || argc <= 1)
 		ft_putendl("Error! Options: ./fractol 'Mandelbrot' 'Julia' 'Fern'");
+	if (argc == 4 && (ft_strcmp(argv[1], "Julia") != 0))
+	{
+		ft_putendl("Error! Invalid input for Julia set!");
+		ft_putendl("I/P: ./fractol 'Julia c_re c_im");
+	}
+	else
+	{
+		ft_putendl("Error! Invalid input!");
+		ft_putendl("Options: ./fractol 'Mandelbrot' 'Fern' 'Julia c_re c_im");
+	}
 }
 
 int	main(int argc, char **argv)
@@ -92,6 +84,6 @@ int	main(int argc, char **argv)
 		free(data);
 	}
 	else if (argc > 4 || argc <= 1)
-		ft_error(argc);
+		ft_error(argc, argv);
 	return (0);
 }
