@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 21:05:20 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/06 00:42:16 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:19:51 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	arrows(int key, t_data *data)
 {
 	if (key == 123)
-		data->x_mv += 0.025;
+		data->x_mv += 0.0025;
 	else if (key == 124)
-		data->x_mv -= 0.025;
+		data->x_mv -= 0.0025;
 	else if (key == 125)
-		data->y_mv -= 0.025;
+		data->y_mv -= 0.0025;
 	else if (key == 126)
-		data->y_mv += 0.025;
+		data->y_mv += 0.0025;
 	clear_display_img(data);
 	if (data->fractol == 0)
 		mandelbrot(data);
@@ -59,11 +59,12 @@ double	ft_atof(const char *str)
 	unsigned int	x[4];
 	double			a;
 	double			b;
+	int				sign;
 
 	if (!str)
 		return (0);
 	x[0] = 0;
-	x[1] = 1;
+	sign = 1;
 	x[2] = 0;
 	x[3] = 0;
 	a = 0.0;
@@ -72,13 +73,13 @@ double	ft_atof(const char *str)
 	if (str[x[2]] == '-' || str[x[2]] == '+')
 	{
 		if (str[x[2]] == '-')
-			x[1] = -x[1];
+			sign = -sign;
 		x[2]++;
 	}
-	return (b = ft_atof_cont(str, x, a));
+	return (b = ft_atof_cont(str, x, a, sign));
 }
 
-double	ft_atof_cont(const char *str, unsigned int x[4], double a)
+double	ft_atof_cont(const char *str, unsigned int x[4], double a, int sign)
 {
 	while ((str[x[2]] > 47 && str[x[2]] < 58 && str[x[2]]) || str[x[2]] == '.')
 	{
@@ -90,9 +91,9 @@ double	ft_atof_cont(const char *str, unsigned int x[4], double a)
 		if (x[3])
 			x[3]++;
 		x[0] = (x[0] * 10) + (str[x[2]] - '0');
-		if (x[0] > 2147483648)
+		if (x[0] > 2147483648 && sign == -1)
 			return (0);
-		else if (x[0] > 4294967295 && x[1] == 1)
+		else if (x[0] > 4294967295 && sign == 1)
 			return (0);
 		x[2]++;
 	}
@@ -100,5 +101,5 @@ double	ft_atof_cont(const char *str, unsigned int x[4], double a)
 		a = pow(10, (x[3] - 1));
 	else
 		a = 1;
-	return (((double) x[0] * x[1]) / a);
+	return (((double) x[0] * sign) / a);
 }

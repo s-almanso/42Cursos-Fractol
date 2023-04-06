@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:46:34 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/06 00:38:16 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:55:22 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_strcmp(char *s1, char *s2);
 double	ft_atof(const char *str);
 void	ft_check_range(t_data *data);
-double	ft_atof_cont(const char *str, unsigned int x[4], double a);
+double	ft_atof_cont(const char *str, unsigned int x[4], double a, int sign);
 void	zoom_mandelbrot(t_data *data, int mouse_code);
 
 #endif

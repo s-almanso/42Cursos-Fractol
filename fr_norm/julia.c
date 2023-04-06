@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:15:01 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/05 23:54:00 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:50:17 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,13 @@ int	julia_n(t_data *data)
 	return (i);
 }
 
+#include <stdio.h>
+
 void	julia(t_data *data)
 {
 	int	x[3];
 
+	printf("%f\n %f\n",data->c_re, data->c_im);
 	x[2] = 0;
 	x[1] = 100;
 	ft_check_range(data);
