@@ -6,7 +6,7 @@
 /*   By: salmanso <salmanso@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:19:07 by salmanso          #+#    #+#             */
-/*   Updated: 2023/04/05 22:58:56 by salmanso         ###   ########.fr       */
+/*   Updated: 2023/04/09 17:35:00 by salmanso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,25 @@ void	ft_error(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_data	*data;
+	int		i;
 
+	i = 1;
+	if(argc >= 3)
+	{
+		while(argv[2][i] != '\0')
+		{
+			if(argv[2][i] >= '0' && argv[2][i] <= '9')
+				exit(1);
+			i++;
+		}
+		i = 1;
+		while(argv[3][i] != '\0')
+		{
+			if(argv[3][i] >= '0' && argv[3][i] <= '9')
+				exit(1);
+			i++;
+		}
+	}
 	if (argc >= 2 && argc <= 4)
 	{
 		data = (t_data *) malloc(sizeof(t_data));
